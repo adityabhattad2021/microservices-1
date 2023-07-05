@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useStateContext } from "../context";
 import { useEffect } from "react";
+import CreateComment from "./CreateComment";
+import CommentList from "./CommentList";
 
 export default function PostList() {
   const { state, dispatch } = useStateContext();
@@ -26,7 +28,9 @@ export default function PostList() {
       >
         <div className="card-body">
           <h3>{post.title}</h3>
+          <CommentList postId={post.id} />
         </div>
+        <CreateComment postId={post.id} />
       </div>
     );
   });

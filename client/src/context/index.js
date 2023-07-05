@@ -20,7 +20,7 @@ export function StateContextProvider({children}){
 
     const [state,dispatch]=useReducer(reducer,{
         title:"",
-        listOfPosts:{}
+        listOfPosts:{},
     })
 
     return (
