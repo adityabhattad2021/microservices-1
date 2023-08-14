@@ -8,7 +8,8 @@ export default function PostList() {
   const { state, dispatch } = useStateContext();
 
   async function fetchPosts() {
-    const posts = await axios.get("http://localhost:4000/posts");
+    const posts = await axios.get("http://localhost:4002/posts");
+    console.log(posts);
     dispatch({
       type: "setPosts",
       payload: posts.data,
@@ -20,20 +21,16 @@ export default function PostList() {
   }, []);
 
   const renderedPosts = Object.values(state.listOfPosts).map((post) => {
-    return (
-      <div
-        className="card"
-        style={{ width: "30%", marginBottom: "20px" }}
-        key={post.id}
-      >
-        <div className="card-body">
-          <h3>{post.title}</h3>
-          <CommentList postId={post.id} />
-        </div>
-        <CreateComment postId={post.id} />
+  return (
+    <div className="card" style={{ width: "30%", marginBottom: "20px" }} key={post.id}>
+      <div className="card-body">
+        <h3>{post.title}</h3>
+        <CommentList comments={post.comments} />
       </div>
-    );
-  });
+      <CreateComment postId={post.id} />
+    </div>
+  );
+});
 
   return (
     <div className="d-flex flex-row flex-wrap justify-content-between">

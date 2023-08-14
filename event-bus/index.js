@@ -22,7 +22,7 @@ app.post("/events",(req,res)=>{
         console.log("Successfully emmited event to PORT 4001");
     }).catch((error)=>{
         console.log(error);
-    });;
+    });
     axios.post("http://localhost:4002/events",event).then(()=>{
         console.log("Successfully emmited event to PORT 4002");
     }).catch((error)=>{
