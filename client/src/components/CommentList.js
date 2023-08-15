@@ -9,7 +9,7 @@ export default function CommentList({ comments }) {
         <li
             key={comment.commentId}
         >
-            {comment.comment}
+            {comment.status==='approved' ? comment.comment : comment.status==='pending'?'This comment is being reviewed by our moderation team' : 'Comment was blocked by our modertion service'}
         </li>
       );
     }
