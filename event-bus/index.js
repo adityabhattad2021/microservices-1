@@ -16,37 +16,37 @@ app.post('/events', (req, res) => {
   events.push(event);
 
   axios
-    .post('http://localhost:4000/events', event)
+    .post('http://posts-service:4000/events', event)
     .then(() => {
       console.log('Successfully emmited event to PORT 4000');
     })
     .catch((error) => {
       console.log(error);
     });
-  axios
-    .post('http://localhost:4001/events', event)
-    .then(() => {
-      console.log('Successfully emmited event to PORT 4001');
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  axios
-    .post('http://localhost:4002/events', event)
-    .then(() => {
-      console.log('Successfully emmited event to PORT 4002');
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  axios
-    .post('http://localhost:4003/events', event)
-    .then(() => {
-      console.log('Successfully emitted event to PORT 4003');
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  // axios
+  //   .post('http://localhost:4001/events', event)
+  //   .then(() => {
+  //     console.log('Successfully emmited event to PORT 4001');
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+  // axios
+  //   .post('http://localhost:4002/events', event)
+  //   .then(() => {
+  //     console.log('Successfully emmited event to PORT 4002');
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+  // axios
+  //   .post('http://localhost:4003/events', event)
+  //   .then(() => {
+  //     console.log('Successfully emitted event to PORT 4003');
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
 
   res.send({ status: 200 });
 });
