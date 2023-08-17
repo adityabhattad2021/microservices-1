@@ -10,7 +10,7 @@ const handleEvent = (requestBody)=>{
     const {type,data}=requestBody;
     if(type==='CommentCreated'){
         const status = data.comment.includes('orange') ? 'rejected':'approved';
-        axios.post('http://localhost:4005/events',{
+        axios.post('http://event-bus-service:4005/events',{
             type:'CommentModerated',
             data:{
                 commentId:data.commentId,
@@ -35,7 +35,7 @@ app.post('/events',(req,res)=>{
 app.listen(PORT,async()=>{
     console.log(`Moderation service livea at port: ${PORT}`);
     try{
-        const res = await axios.get('http://localhost:4005/events');
+        const res = await axios.get('http://event-bus-service:4005/events');
         for(let event of res.data){
             console.log('Processing events',event.type);
             handleEvent(event);

@@ -8,7 +8,7 @@ export default function PostList() {
   const { state, dispatch } = useStateContext();
 
   async function fetchPosts() {
-    const posts = await axios.get("http://localhost:4002/posts");
+    const posts = await axios.get("http://posts.com/posts");
     console.log(posts);
     dispatch({
       type: "setPosts",
