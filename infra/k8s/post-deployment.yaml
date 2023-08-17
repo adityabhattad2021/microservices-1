@@ -21,7 +21,6 @@ kind: Service
 metadata:
   name: posts-service
 spec:
-  type: Service
   selector:
     app: posts
   type: ClusterIP
